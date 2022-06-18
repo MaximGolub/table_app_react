@@ -9,7 +9,7 @@ export default class ChangeModal extends React.Component {
     };
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.value === "") {
       this.setState({
@@ -19,7 +19,7 @@ export default class ChangeModal extends React.Component {
       this.props.onSave(this.state.value);
     }
     this.props.close();
-  }
+  };
 
   handleFieldChange = (e) => {
     const { target } = e;
@@ -33,12 +33,12 @@ export default class ChangeModal extends React.Component {
       <>
         {this.props.show && (
           <form
-            onSubmit={this.handleSubmit.bind(this)}
+            onSubmit={this.handleSubmit}
             className="max-w-3xl h-1/4 relative top-1/4 left-0 -translate-y-50% flex flex-col justify-center mx-auto"
           >
             <input
               defaultValue={this.props.value}
-              onChange={this.handleFieldChange.bind(this)}
+              onChange={this.handleFieldChange}
               type="text"
               className="
               form-control
